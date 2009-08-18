@@ -18,7 +18,7 @@
 }
 
 
-//for new layout documents, just create new document of the default type
+//for other document types we have to do a bit more manual labour
 - (IBAction)newLayoutDocument:(id)sender
 {
 	NSError* error = nil;
@@ -33,7 +33,7 @@
 	[newDocument showWindows];
 }
 
-//for other document types we have to do a bit more manual labour
+//for new layout documents, just create new document of the default type
 - (IBAction)newTextDocument:(id)sender
 {
 	NSError* error = nil;
