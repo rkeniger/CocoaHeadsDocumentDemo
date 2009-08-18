@@ -1,0 +1,5 @@
+/* Localized versions of Info.plist keys */
+
+LayoutDocumentType = "DocumentDemo Layout Document";
+HTMLDocumentType = "HTML Document";
+TextDocumentType = "Text Document";
