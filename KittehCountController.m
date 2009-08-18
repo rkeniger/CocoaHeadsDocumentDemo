@@ -21,6 +21,12 @@
 	return self;
 }
 
+- (void)windowDidLoad
+{
+	[numberField setFont:[NSFont fontWithName:@"Husky Stash" size:260.0]];
+}
+
+
 - (NSString *)windowTitleForDocumentDisplayName:(NSString *)displayName
 {
 	return [displayName stringByAppendingString:@" — Kitteh Count"];

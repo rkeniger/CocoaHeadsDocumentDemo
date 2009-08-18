@@ -11,7 +11,7 @@
 
 @interface KittehCountController : NSWindowController 
 {
-
+	IBOutlet NSTextField* numberField;
 }
 
 @end
