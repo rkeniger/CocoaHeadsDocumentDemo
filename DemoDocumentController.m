@@ -14,27 +14,15 @@
 //the default document type that appears when we do File > New
 - (NSString *)defaultType
 {
-	return @"LayoutDocumentType";
+	return @"public.rtf";
 }
 
 
 //for new layout documents, just create new document of the default type
 - (IBAction)newLayoutDocument:(id)sender
 {
-	
 	NSError* error = nil;
-	if(![self openUntitledDocumentAndDisplay:YES error:&error])
-	{
-		if(error)
-			[self presentError:error];
-	}
-}
-
-//for other document types we have to do a bit more manual labour
-- (IBAction)newTextDocument:(id)sender
-{
-	NSError* error = nil;
-	NSDocument* newDocument = [self makeUntitledDocumentOfType:@"public.rtf" error:&error];
+	NSDocument* newDocument = [self makeUntitledDocumentOfType:@"LayoutDocumentType" error:&error];
 	if(!newDocument)
 	{
 		if(error)
@@ -43,6 +31,17 @@
 	[self addDocument:newDocument];
 	[newDocument makeWindowControllers];
 	[newDocument showWindows];
+}
+
+//for other document types we have to do a bit more manual labour
+- (IBAction)newTextDocument:(id)sender
+{
+	NSError* error = nil;
+	if(![self openUntitledDocumentAndDisplay:YES error:&error])
+	{
+		if(error)
+			[self presentError:error];
+	}
 }
 
 
