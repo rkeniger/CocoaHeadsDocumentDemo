@@ -50,13 +50,13 @@
 			return [NSImage imageNamed:@"kitteh1"];
 			break;
 		case Cuter:
-			return [NSImage imageNamed:@"kitteh2"];
+			return [NSImage imageNamed:@"kitteh4"];
 			break;
 		case ReallyCute:
-			return [NSImage imageNamed:@"kitteh3"];
+			return [NSImage imageNamed:@"kitteh2"];
 			break;
 		case SuperCute:
-			return [NSImage imageNamed:@"kitteh4"];
+			return [NSImage imageNamed:@"kitteh3"];
 			break;
 	}
 	return nil;
