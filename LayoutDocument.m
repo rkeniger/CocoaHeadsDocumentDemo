@@ -30,12 +30,12 @@ NSString* kKittehsKey = @"Kittehs";
 //set up all the window controllers for this document
 - (void)makeWindowControllers
 {
+	KittehCountController* kittehCountController = [[KittehCountController alloc] init];
+	[self addWindowController:kittehCountController];
+	
 	LayoutWindowController* imageWinController = [[LayoutWindowController alloc] init];
 	self.delegate = imageWinController;
 	[self addWindowController:imageWinController];
-	
-	KittehCountController* kittehCountController = [[KittehCountController alloc] init];
-	[self addWindowController:kittehCountController];
 }
 
 //write the data
