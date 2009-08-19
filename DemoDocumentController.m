@@ -17,7 +17,6 @@
 	return @"public.rtf";
 }
 
-
 //for other document types we have to do a bit more manual labour
 - (IBAction)newLayoutDocument:(id)sender
 {
