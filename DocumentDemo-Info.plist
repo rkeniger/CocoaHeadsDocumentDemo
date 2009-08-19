@@ -48,12 +48,28 @@
 		</dict>
 		<dict>
 			<key>CFBundleTypeName</key>
-			<string>TextDocumentType</string>
+			<string>RichTextDocumentType</string>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>LSItemContentTypes</key>
 			<array>
 				<string>public.rtf</string>
+			</array>
+			<key>LSTypeIsPackage</key>
+			<false/>
+			<key>NSDocumentClass</key>
+			<string>TextDocument</string>
+			<key>NSPersistentStoreTypeKey</key>
+			<string>XML</string>
+		</dict>
+		<dict>
+			<key>CFBundleTypeName</key>
+			<string>PlainTextDocumentType</string>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>LSItemContentTypes</key>
+			<array>
+				<string>public.plain-text</string>
 			</array>
 			<key>LSTypeIsPackage</key>
 			<false/>

@@ -34,7 +34,6 @@
 		D4DB4931103A9F6F0008B0DB /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = D4DB492E103A9F6F0008B0DB /* Fonts */; };
 		D4DB49B5103AA4AC0008B0DB /* Layout.icns in Resources */ = {isa = PBXBuildFile; fileRef = D4DB49B4103AA4AC0008B0DB /* Layout.icns */; };
 		D4DB4ACA103AB4D30008B0DB /* Cat.icns in Resources */ = {isa = PBXBuildFile; fileRef = D4DB4AC9103AB4D30008B0DB /* Cat.icns */; };
-		D4DB4AE7103AB5A50008B0DB /* DemoDocumentAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D4DB4AE6103AB5A50008B0DB /* DemoDocumentAppDelegate.m */; };
 		D4ECA170103960D000D5E2AA /* kitteh1.png in Resources */ = {isa = PBXBuildFile; fileRef = D4ECA16C103960D000D5E2AA /* kitteh1.png */; };
 		D4ECA171103960D000D5E2AA /* kitteh2.png in Resources */ = {isa = PBXBuildFile; fileRef = D4ECA16D103960D000D5E2AA /* kitteh2.png */; };
 		D4ECA172103960D000D5E2AA /* kitteh3.png in Resources */ = {isa = PBXBuildFile; fileRef = D4ECA16E103960D000D5E2AA /* kitteh3.png */; };
@@ -88,8 +87,6 @@
 		D4DB492E103A9F6F0008B0DB /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Fonts; sourceTree = "<group>"; };
 		D4DB49B4103AA4AC0008B0DB /* Layout.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Layout.icns; sourceTree = "<group>"; };
 		D4DB4AC9103AB4D30008B0DB /* Cat.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Cat.icns; sourceTree = "<group>"; };
-		D4DB4AE5103AB5A50008B0DB /* DemoDocumentAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoDocumentAppDelegate.h; sourceTree = "<group>"; };
-		D4DB4AE6103AB5A50008B0DB /* DemoDocumentAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoDocumentAppDelegate.m; sourceTree = "<group>"; };
 		D4ECA16C103960D000D5E2AA /* kitteh1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kitteh1.png; sourceTree = "<group>"; };
 		D4ECA16D103960D000D5E2AA /* kitteh2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kitteh2.png; sourceTree = "<group>"; };
 		D4ECA16E103960D000D5E2AA /* kitteh3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kitteh3.png; sourceTree = "<group>"; };
@@ -159,8 +156,6 @@
 				D4535B9E1037B1E20071D59B /* Layout Document */,
 				D4535BA11037B24B0071D59B /* DemoDocumentController.h */,
 				D4535BA21037B24B0071D59B /* DemoDocumentController.m */,
-				D4DB4AE5103AB5A50008B0DB /* DemoDocumentAppDelegate.h */,
-				D4DB4AE6103AB5A50008B0DB /* DemoDocumentAppDelegate.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -382,7 +377,6 @@
 				D4DB454D103A4F940008B0DB /* NSShadow+Extras.m in Sources */,
 				D4DB4665103A5E9E0008B0DB /* NSObject+MMBindings.m in Sources */,
 				D4DB4824103A86A20008B0DB /* KittehCountController.m in Sources */,
-				D4DB4AE7103AB5A50008B0DB /* DemoDocumentAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,6 +10,17 @@
 
 @implementation TextDocument
 
++ (NSArray*)readableTypes
+{
+	return [NSArray arrayWithObjects:@"public.rtf",@"public.plain-text",nil];
+}
+
++ (NSArray*)writableTypes
+{
+	return [NSArray arrayWithObjects:@"public.rtf",@"public.plain-text",nil];
+}
+
+
 - (id)init
 {
 	self = [super init];
@@ -31,37 +42,84 @@
 - (void)windowControllerDidLoadNib:(NSWindowController*)aController
 {
 	[super windowControllerDidLoadNib:aController];
-	[[textView textStorage] setAttributedString:rtfString];
+
+	//based on the file type, we pass either a plain text string or an attributed string
+	if([[self fileType] isEqualToString:@"public.rtf"])
+	{
+		[textView setRichText:YES];
+		[[textView textStorage] setAttributedString:rtfString];
+	}
+	else
+	{
+		[textView setRichText:NO];
+		[textView setString:[rtfString string]];
+	}
 }
 
-- (BOOL)readFromData:(NSData*)data ofType:(NSString*)typeName error:(NSError * *)outError
+- (BOOL)readFromURL:(NSURL*)absoluteURL ofType:(NSString*)typeName error:(NSError * *)outError
 {
-	rtfString = [[NSAttributedString alloc] initWithRTF:data documentAttributes:NULL];
-
-	if(!rtfString)
+	//
+	if([typeName isEqualToString:@"public.rtf"])
 	{
-		if ( outError != NULL )
-		{
-			*outError = [NSError errorWithDomain:NSCocoaErrorDomain code:NSFileReadUnknownError userInfo:NULL];
-		}
-		return NO;
+		rtfString         = [[NSAttributedString alloc] initWithURL:absoluteURL
+		                     options:[NSDictionary dictionaryWithObject:NSRTFTextDocumentType forKey:NSDocumentTypeDocumentOption]
+		                     documentAttributes:NULL
+		                     error:outError];
+		plainTextEncoding = NSUTF8StringEncoding;
+
+		if(!rtfString)
+			return NO;
+		return YES;
 	}
-	return YES;
+	else
+	if([typeName isEqualToString:@"public.plain-text"])
+	{
+		//this initialises the string and detects the encoding for us
+		NSString* text = [NSString stringWithContentsOfURL:absoluteURL usedEncoding:&plainTextEncoding error:outError];
+
+		if(!text)
+			return NO;
+		rtfString = [[NSAttributedString alloc] initWithString:text];
+		return YES;
+	}
+
+	if(outError != NULL)
+		*outError = [NSError errorWithDomain:NSCocoaErrorDomain code:NSFileWriteUnknownError userInfo:NULL];
+	return NO;
 }
 
 - (NSData*)dataOfType:(NSString*)typeName error:(NSError * *)outError
 {
-	NSData* data = [textView RTFFromRange:NSMakeRange(0, [[textView textStorage] length])];
-
-	if(!data)
+	//write RTF data
+	if([typeName isEqualToString:@"public.rtf"])
 	{
-		if ( outError != NULL )
+		NSData* data = [textView RTFFromRange:NSMakeRange(0, [[textView textStorage] length])];
+
+		if(!data)
 		{
-			*outError = [NSError errorWithDomain:NSCocoaErrorDomain code:NSFileWriteUnknownError userInfo:NULL];
+			if(outError != NULL)
+				*outError = [NSError errorWithDomain:NSCocoaErrorDomain code:NSFileWriteUnknownError userInfo:NULL];
+			return nil;
 		}
-		return nil;
+		return data;
 	}
-	return data;
+
+	//write plain text data
+	if([typeName isEqualToString:@"public.plain-text"])
+	{
+		NSData* data = [[textView string] dataUsingEncoding:plainTextEncoding];
+
+		if(!data)
+		{
+			if(outError != NULL)
+				*outError = [NSError errorWithDomain:NSCocoaErrorDomain code:NSFileWriteUnknownError userInfo:NULL];
+			return nil;
+		}
+		return data;
+	}
+	if(outError != NULL)
+		*outError = [NSError errorWithDomain:NSCocoaErrorDomain code:NSFileWriteUnknownError userInfo:NULL];
+	return nil;
 }
 
 @end

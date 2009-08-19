@@ -2,4 +2,5 @@
 
 LayoutDocumentType = "DocumentDemo Layout Document";
 HTMLDocumentType = "HTML Document";
-TextDocumentType = "Text Document";
+PlainTextDocumentType = "Plain Text Document";
+RichTextDocumentType = "Rich Text Document (RTF)";

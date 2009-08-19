@@ -13,5 +13,6 @@
 {
 	IBOutlet NSTextView* textView;
 	NSAttributedString* rtfString;
+	NSStringEncoding plainTextEncoding;
 }
 @end
