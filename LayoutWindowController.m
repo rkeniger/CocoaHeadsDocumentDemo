@@ -67,6 +67,9 @@ static void* ColorContext  = @"ColorContext";
 
 	//refresh the view
 	[imageView setNeedsDisplay:YES];
+	
+	//load the inspector nib, which hooks up the array controller's selection to the document's selection
+	[[InspectorController sharedInspector] window];
 }
 
 //handle KVO notifications
