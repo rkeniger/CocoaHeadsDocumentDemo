@@ -39,6 +39,7 @@
 	return @"TextDocument";
 }
 
+//called when the nib is loaded, outlets are guaranteed to be active at this point
 - (void)windowControllerDidLoadNib:(NSWindowController*)aController
 {
 	[super windowControllerDidLoadNib:aController];
@@ -51,6 +52,7 @@
 	}
 	else
 	{
+		//if it's a plain text string, we don't want the user to be able to apply attributes
 		[textView setRichText:NO];
 		[textView setString:[rtfString string]];
 	}

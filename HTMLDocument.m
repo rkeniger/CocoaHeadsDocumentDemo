@@ -30,23 +30,13 @@
 	return NO;
 }
 
-
+//called when the nib is loaded, outlets are guaranteed to be active at this point
 - (void)windowControllerDidLoadNib:(NSWindowController*)windowController
 {
 	[[webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[self fileURL]]];
 }
 
-+ (NSArray*)readableTypes
-{
-	return [NSArray arrayWithObject:@"public.html"];
-}
-
-+ (NSArray*)writableTypes
-{
-	return nil;
-}
-
-//we don't want to allow saving, so disable an UI items that try to call the save methods
+//we don't want to allow saving, so disable UI items that try to call the save methods
 - (BOOL)validateUserInterfaceItem:(id < NSValidatedUserInterfaceItem >)anItem
 {
 	SEL action = [anItem action];
